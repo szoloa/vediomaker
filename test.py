@@ -18,11 +18,19 @@ def makevedio(iptvedio, bg, img, opt):
         text="The girl \nI want", font="simsun", font_size=84, color="black"
     )
     txt_clip = txt_clip.with_position((120, 1080 / 4 - 84 / 2))
+    
     txt_clip_2 = TextClip(
         text="What I \nlooks like", font="simsun", font_size=84, color="black"
     )
     txt_clip_2 = txt_clip_2.with_position((120, 1080 * 3 / 4 - 84 / 2))
 
+    img = img.with_position((640, 1080 * 3 / 4))
+
+    txt_clip = txt_clip.with_end(clip.end)
+    txt_clip_2 = txt_clip_2.with_end(clip.end)
+    bg = bg.with_end(clip.end)
+
+    # Overlay the text clip on the first video clip
     img = ImageClip(img)
     img = img.with_end(clip.end)
     img = img.resized(0.4)
